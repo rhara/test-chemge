@@ -1,8 +1,8 @@
 build36:
-	docker build -t rhara/chemge_py36:0.1 -f Dockerfile.py36.
+	docker build -t rhara/chemge_py36:0.1 -f Dockerfile.py36 .
 
 build35:
-	docker build -t rhara/chemge_py35:0.1 -f Dockerfile.py35.
+	docker build -t rhara/chemge_py35:0.1 -f Dockerfile.py35 .
 
 run36:
 	docker run -t -i -v ~/data:/data -v $$PWD:/supp -p 8888:8888 rhara/chemge_py36:0.1 bash

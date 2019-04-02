@@ -21,9 +21,11 @@ RUN make -j8 linux-g++-64
 RUN echo 'export RBT_ROOT="$HOME/rDock_2013.1_src"' >> $HOME/.bashrc
 RUN echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$RBT_ROOT/lib"' >> $HOME/.bashrc
 RUN echo 'export PATH="$PATH:$RBT_ROOT/bin"' >> $HOME/.bashrc
+RUN echo 'export RBT_HOME="$HOME/ChemGE"' >> $HOME/.bashrc
 ENV RBT_ROOT="$HOME/rDock_2013.1_src"
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$RBT_ROOT/lib"
 ENV PATH="$PATH:$RBT_ROOT/bin"
+ENV RBT_HOME="$HOME/ChemGE"
 
 WORKDIR /root
 
@@ -33,6 +35,7 @@ ENV PATH /root/miniconda3/bin:$PATH
 ENV CONDA_EXE /root/miniconda3/bin/conda
 RUN conda update -y -n base -c defaults conda
 RUN conda create -y -n py36 -c rdkit python=3.6 rdkit nltk networkx
+RUN conda install -y -c openbabel openbabel
 ENV PATH /root/miniconda3/envs/py36/bin:$PATH
 ENV CONDA_DEFAULT_ENV py36
 ENV CONDA_PREFIX /root/miniconda3/envs/py36
