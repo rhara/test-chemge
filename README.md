@@ -1,6 +1,8 @@
 # test-chemge
 
 ### Go easy
+
+You would need to rename your image file and -v, -p options to suit to your system.
 ```
 make build
 make run
