@@ -2,17 +2,16 @@
 
 ChemGE: https://github.com/tsudalab/ChemGE
 
-### Go easy
+### Docker build for Python 3.5
+```
+docker build -t my/chemge_py35:0.1 -f Dockerfile.py35 .
+docker run -t -i my/chemge_py35:0.1 bash
+python -u optimize-rdock.py | tee log-file
+```
 
-You would need to rename your image file and -v, -p options to suit to your system.
+### Docker build for Python 3.6
 ```
-make build
-make run
-```
-
-### Do docker-compose
-```
-docker build -t rhara/chemge:0.1 .
-docker run -t -i -v ~/data:/data -v $PWD:/supp -p 8888:8888 rhara/chemge:0.1 bash
+docker build -t my/chemge_py36:0.1 -f Dockerfile.py36 .
+docker run -t -i my/chemge_py36:0.1 bash
 python -u optimize-rdock.py | tee log-file
 ```
