@@ -6,6 +6,7 @@ RUN apt-get upgrade -y
 RUN apt-get install lsof wget curl vim git unzip bzip2 -y
 RUN apt-get install libxrender1 -y
 RUN apt-get install build-essential libcppunit-dev libpopt-dev -y
+RUN apt-get install openbabel -y
 
 WORKDIR /root
 
