@@ -35,12 +35,10 @@ ENV PATH /root/miniconda3/bin:$PATH
 ENV CONDA_EXE /root/miniconda3/bin/conda
 RUN conda update -y -n base -c defaults conda
 RUN conda create -y -n py35 -c rdkit python=3.5 rdkit nltk networkx
-RUN conda install -y -c openbabel openbabel
 ENV PATH /root/miniconda3/envs/py35/bin:$PATH
 ENV CONDA_DEFAULT_ENV py35
 ENV CONDA_PREFIX /root/miniconda3/envs/py35
-
-ENV conda install -c openbabel openbabel -y
+RUN conda install -y -c openbabel openbabel
 
 COPY receptor.pdb /root/receptor.pdb
 COPY ligand.mol2 /root/ligand.mol2
