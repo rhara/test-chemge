@@ -40,4 +40,9 @@ ENV PATH /root/miniconda3/envs/py35/bin:$PATH
 ENV CONDA_DEFAULT_ENV py35
 ENV CONDA_PREFIX /root/miniconda3/envs/py35
 
+ENV conda install -c openbabel openbabel -y
+
+COPY receptor.pdb /root/receptor.pdb
+COPY ligand.mol2 /root/ligand.mol2
+
 WORKDIR /root/ChemGE

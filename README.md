@@ -15,3 +15,13 @@ docker build -t my/chemge_py36:0.1 -f Dockerfile.py36 .
 docker run -t -i my/chemge_py36:0.1 bash
 python -u optimize-rdock.py | tee log-file
 ```
+
+### How to generate files required to execute rDock
+
+```
+cd ~
+$RBT_HOME/util/pdb2mol receptor.pdb
+$RBT_HOME/utli/mol2sd ligand.mol2
+$RBT_HOME/util/gen_prm ligand.sd receptor.mol2 | tee cavity.prm
+$RBT_ROOT/bin/rbcavity -r cavity.prm -W
+```
