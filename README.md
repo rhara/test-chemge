@@ -21,7 +21,7 @@ python -u optimize-rdock.py | tee log-file
 ```
 cd ~
 $RBT_HOME/util/pdb2mol receptor.pdb
-$RBT_HOME/utli/mol2sd ligand.mol2
+$RBT_HOME/util/mol2sd ligand.mol2
 $RBT_HOME/util/gen_prm ligand.sd receptor.mol2 | tee cavity.prm
 $RBT_ROOT/bin/rbcavity -r cavity.prm -W
 ```
